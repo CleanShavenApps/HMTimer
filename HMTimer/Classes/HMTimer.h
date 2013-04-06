@@ -23,6 +23,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     
 }
 
+// A rough gauge of the date (time) the completion handler will be fired.
+@property (nonatomic, readonly) NSDate *nextFireDate;
+
 @property (nonatomic, readonly) NSTimeInterval duration;
 @property (nonatomic, readonly) dispatch_queue_t queue;
 @property (nonatomic, readonly) BOOL repeats;

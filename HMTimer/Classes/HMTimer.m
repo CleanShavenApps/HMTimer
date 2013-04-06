@@ -70,7 +70,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 
 - (void) fire {
-    
     int64_t nanoseconds = self.duration * NSEC_PER_SEC;
     
     dispatch_time_t fireTime = dispatch_time(DISPATCH_TIME_NOW, nanoseconds);
@@ -89,11 +88,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         }
         
     });
-    
+	
+	_nextFireDate = [NSDate dateWithTimeIntervalSinceNow:self.duration];
 }
 
 - (void) invalidate {
     _isValid = NO;
+	_nextFireDate = nil;
 }
 
 @end
